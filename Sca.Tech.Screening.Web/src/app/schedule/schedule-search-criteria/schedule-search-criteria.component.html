@@ -1,0 +1,31 @@
+<form [formGroup]="dailyScheduleSearchForm">
+
+  <p class="form-field-container">
+    <mat-form-field>
+
+      <mat-select placeholder="Select Location..." formControlName="facilitySelect">
+
+        <mat-option *ngFor="let location of locations" [value]="location.facilityId">
+          {{location.facilityName}}&nbsp;({{location.facilityId}})
+        </mat-option>
+
+      </mat-select>
+    </mat-form-field>
+  </p>
+  <p class="form-field-container">
+    <mat-form-field>
+
+      <input matInput [matDatepickerFilter]="onlyMondaysFilter" [matDatepicker]="startDatePicker" placeholder="Choose Start Date..."
+        formControlName="startDatePicker" disabled>
+
+      <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+
+      <mat-datepicker #startDatePicker disabled="false"></mat-datepicker>
+    </mat-form-field>
+  </p>
+  <p class="form-field-container">
+    <button class="mat-raised-button mat-primary" (click)="search()" [disabled]="dailyScheduleSearchForm.pristine || !dailyScheduleSearchForm.valid" >
+      {{searchButtonLabel}}
+    </button>
+  </p>
+</form>

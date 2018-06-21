@@ -1,0 +1,85 @@
+<div class="pull-right">
+    <button class="mat-raised-button mat-primary" style="background-color:forestgreen;" (click)="exportToExcel()">
+      Export to Excel
+    </button>
+</div>
+
+<mat-table class="schedules-table mat-elevation-z8" [dataSource]="dataSource" matSort>
+
+  <ng-container matColumnDef="teammateName">
+
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Teammate</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.teammateName}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="teammateType">
+
+    <mat-header-cell *matHeaderCellDef mat-sort-header>Employee Type</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.teammateType}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="monday">
+
+    <mat-header-cell *matHeaderCellDef>{{mondayColumnLabel}}</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.monday}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="tuesday">
+
+    <mat-header-cell *matHeaderCellDef>{{tuesdayColumnLabel}}</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.tuesday}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="wednesday">
+
+    <mat-header-cell *matHeaderCellDef>{{wednesdayColumnLabel}}</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.wednesday}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="thursday">
+
+    <mat-header-cell *matHeaderCellDef>{{thursdayColumnLabel}}</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.thursday}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="friday">
+
+    <mat-header-cell *matHeaderCellDef>{{fridayColumnLabel}}</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.friday}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="saturday">
+
+    <mat-header-cell *matHeaderCellDef>{{saturdayColumnLabel}}</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.saturday}}</mat-cell>
+
+  </ng-container>
+
+  <ng-container matColumnDef="sunday">
+
+    <mat-header-cell *matHeaderCellDef>{{sundayColumnLabel}}</mat-header-cell>
+
+    <mat-cell *matCellDef="let schedule">{{schedule.sunday}}</mat-cell>
+
+  </ng-container>
+
+  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+
+  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+
+</mat-table>
